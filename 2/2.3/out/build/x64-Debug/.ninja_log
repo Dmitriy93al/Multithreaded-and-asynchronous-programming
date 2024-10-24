@@ -1,0 +1,5 @@
+# ninja log v5
+5	350	7514717872902831	CMakeFiles/Secure_data_exchange.dir/Data.cpp.obj	2d92d72f129104fd
+8	369	7514717873082838	CMakeFiles/Secure_data_exchange.dir/Swap.cpp.obj	df4202e2061be29c
+2	600	7514717875415908	CMakeFiles/Secure_data_exchange.dir/Secure_data_exchange.cpp.obj	8cc1d2fb30c3f490
+600	818	7514717877455031	Secure_data_exchange.exe	ee57ec65ca0bbfa8

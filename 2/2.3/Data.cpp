@@ -1,21 +1,26 @@
 #include "Data.h"
-#include <iostream>
 
+void Data::operator=(Data& other) {
 
-
-
-int Data::getValue() const
-{
-	return Data::value_;
+	iVal_ = other.iVal_;
+	dVal_ = other.dVal_;
 }
 
-void Data::setValue(int value)
-{
-	Data::value_ = value;
+void Data::operator=(Data&& other) noexcept {
+
+	iVal_ = other.iVal_;
+	dVal_ = other.dVal_;
 }
 
-//void Data::printDataValue() const
-//{
-//	std::cout << "value_ = " << value_ << ";" << std::endl;
-//}
+void Data::view() {
 
+	mutex.lock();
+
+	std::cout << "int: " << iVal_ << '\n' << "double: " << dVal_ << std::endl;
+
+	mutex.unlock();
+}
+
+std::mutex& Data::get_mutex() {
+	return mutex;
+}

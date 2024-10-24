@@ -1,26 +1,21 @@
 #pragma once
+#include <iostream>
 #include <mutex>
-#include <vector>
 
-
-class Data
-{
-private:
-	int value_ = 0;
-	
+class Data {
 
 public:
-	Data() = default;
-	Data(int value) : value_(value) {}
-	
-	std::mutex mutex_;
-	
-	int getValue() const;
-	void setValue(int value);
+	Data(int& iVal, double& dVal):iVal_(iVal), dVal_(dVal){}
+	Data(int&& iVal, double&& dVal) :iVal_(iVal), dVal_(dVal) {}
+	Data(Data& other) :iVal_(other.iVal_), dVal_(other.dVal_) {}
+	Data(Data&& other) noexcept :iVal_(other.iVal_), dVal_(other.dVal_) {}
+	void operator=(Data& other);
+	void operator=(Data&& other) noexcept;
 
-	//friend void swapWithLock(Data& d1, Data& d2);
-	//friend void swapWithScopedLock(Data& d1, Data& d2);
-	//friend void swapWithUniqueLock(Data& d1, Data& d2);
-
-	//void printDataValue() const;
+	void view();
+	std::mutex& get_mutex();
+private:
+	int iVal_ = 0;
+	double dVal_ = 0;
+	std::mutex mutex;
 };

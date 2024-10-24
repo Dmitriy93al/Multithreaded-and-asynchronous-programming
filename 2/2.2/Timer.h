@@ -2,7 +2,6 @@
 #include <chrono>
 #include <iostream>
 #include <Windows.h>
-#include <thread>
 
 class consol_parameter
 {
@@ -45,6 +44,6 @@ public:
         m_beg = clock_t::now();
     }
     void print() const {
-        std::cout << "ID" << std::this_thread::get_id() << "-" << elapsed() * 1000 << " ms";
+        std::cout << m_name << ":\t" << elapsed() * 1000 << " ms" << '\n';
     }
 };
